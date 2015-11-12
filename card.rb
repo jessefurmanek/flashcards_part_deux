@@ -1,6 +1,7 @@
 require_relative 'database.rb'
+require 'active_record'
 
-class Card
+class Card < ActiveRecord::Base
   attr_accessor :name, :front, :back, :mark_correct, :mark_incorrect,
   :last_reviewed, :interval, :save, :as_json
 

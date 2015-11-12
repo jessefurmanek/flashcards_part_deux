@@ -4,7 +4,7 @@ require_relative "review.rb"
 
 class Runner
   def self.bootstrap
-    Database.load_json_file_and_save_as_hash
+    Database.initialize_database
   end
 
   def self.get_actions
