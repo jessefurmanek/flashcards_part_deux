@@ -19,6 +19,16 @@ class Runner
     end
   end
 
+  def self.get_and_valididate_input
+    input = get_input
+    if !valid_input?(input)
+      puts "Invalid selection! Try again."
+      get_and_valididate_input
+    else
+      input
+    end
+  end
+
   def self.get_input
     puts
     print "? "
@@ -38,6 +48,6 @@ class Runner
 
   def self.valid_input?(input)
     actions = get_actions
-    [1..actions.size].include?(input.to_i)
+    (1..actions.size).include?(input.to_i)
   end
 end

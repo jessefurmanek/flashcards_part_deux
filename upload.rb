@@ -27,7 +27,6 @@ class Upload
       card.save
     end
 
-    # Database.hash_to_json
     Database.save_to_json_file
 
   end

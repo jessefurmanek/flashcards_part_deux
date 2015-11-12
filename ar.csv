@@ -1,0 +1,15 @@
+name,front,back
+1,timestamp format,YYYYMMDDHHMMSS
+2,What does t refer to in the migrate Class block?,Within the block t refers to a TableDefinition object but we can just think of it as the table being created in the database
+3,What is the name of the arguments passed in a migrate Class block? And what do they do?,Constraints. They keep our code clean
+4,How does a class get sweet methods to do migration (schema/table) stuff?,Inherits from ActiveRecord::Migraion
+5,Is an ID required to migrate?,"No, it’s automatically created"
+6,What is the expression to add a timestamp inside the migration block?,t.timestamps where t is the iterator
+7,What are the optional columns that add additional features?,created_at - Automatically gets set to the current date and time when the record is first created
+8,How can you override an existing class table name / column for the primary key / class name?,"self.table_name = new name
+ self.fixture_class
+ self.primary_key = product key"
+9,Whats the difference between new and create,New creates a new object
+10,Which method to access the entire collection of that object?,all
+11,Which method to return the first of the collection?,first
+12,Which method to search the collection for the first occurrence of an attribute? Syntax?,find_by
