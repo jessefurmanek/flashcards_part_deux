@@ -1,4 +1,5 @@
-require_relative "database.rb"
+require_relative 'database.rb'
+require 'Time'
 
 class Review
   def self.run
@@ -7,7 +8,8 @@ class Review
   end
 
   def self.load_review_deck
-    review_deck = Database.cards_as_array
+    cards_array = Database.cards_as_array
+    review_deck = create_review_deck(cards_array)
   end
 
   def self.review_cards(review_deck)
@@ -40,4 +42,15 @@ class Review
     Database.update
   end
 
+  def self.create_review_deck(cards_array)
+    review_deck = []
+    cards_array.each do |card_hash|
+      review_deck<<card_hash if time_to_review?(card_hash)
+    end
+    review_deck
+  end
+
+  def self.time_to_review?(card_hash)
+    Time.parse(card_hash['last_reviewed'])+card_hash['interval'] <= Time.now
+  end
 end
