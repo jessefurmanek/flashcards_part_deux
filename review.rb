@@ -19,9 +19,24 @@ class Review
       pause_and_press_enter_to_continue
       puts card['back']
       puts
-      print "Did you get it right? (Y/N)"
-      answer = gets.chomp
-      update_card_in_database(answer, card['name'])
+      while true
+        print "Did you get it right? (Y/N)"
+        answer = gets.chomp
+        if valid_y_n_input(answer)
+          update_card_in_database(answer, card['name'])
+          break
+        else
+          puts "Invalid input -- try again!"
+        end
+      end
+    end
+  end
+
+  def self.valid_y_n_input(answer)
+    if ["Y", "YES", "N", "NO"].include?(answer.upcase)
+      true
+    else
+      false
     end
   end
 
@@ -35,11 +50,12 @@ class Review
   def self.update_card_in_database(answer, card_name)
     if ["Y", "YES"].include?(answer.upcase)
       Database.mark_card_correct(card_name)
+      Database.update_last_reviewed(card_name)
     else
       Database.mark_card_incorrect(card_name)
     end
-    Database.update_last_reviewed(card_name)
-    Database.update
+
+      Database.update_last_reviewed(card_name)
   end
 
   def self.create_review_deck(cards_array)
@@ -51,6 +67,6 @@ class Review
   end
 
   def self.time_to_review?(card_hash)
-    Time.parse(card_hash['last_reviewed'])+card_hash['interval'] <= Time.now
+    card_hash['last_reviewed']+card_hash['interval'] <= Time.now
   end
 end

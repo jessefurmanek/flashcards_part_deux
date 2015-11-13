@@ -4,33 +4,32 @@ require 'active_record'
 class Card < ActiveRecord::Base
   attr_accessor :mark_correct, :mark_incorrect, :as_json
 
-  # def initialize(name)
-  #   @name = name
-  #   @front = ""
-  #   @back = ""
-  #   @last_reviewed = Time.now
-  #   @interval = 1200
-  # end
-
   def mark_correct
-    @interval*=2
+    c = Card.find_by_id(self.id)
+    c.interval*=2
+    c.save
   end
 
   def mark_incorrect
-    @interval*=0.5
+    c = Card.find_by_id(self.id)
+    c.interval*=0.5
+    c.save
   end
 
-  # def save
-  #   Database.save_card(self)
-  # end
+  def update_last_reviewed
+    c = Card.find_by_id(self.id)
+    c.last_reviewed = Time.now
+    c.save
+  end
 
   def to_hash
+    p self.last_reviewed
     h ={}
-    h['name'] = @name
-    h['front'] = @front
-    h['back'] = @back
-    h['last_reviewed'] = @last_reviewed
-    h['interval'] = @interval
+    h['name'] = self.name
+    h['front'] = self.front
+    h['back'] = self.back
+    h['last_reviewed'] = self.last_reviewed
+    h['interval'] = self.interval
     h
   end
 end

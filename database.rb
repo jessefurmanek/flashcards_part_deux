@@ -10,63 +10,35 @@ class Database
     @@as_hash
   end
 
-  # def self.save_card(card)
-  #   name = card.name
-  #
-  #   Card.create(
-  #     :name => card.name,
-  #     :front => card.front,
-  #     :back => card.back,
-  #     :last_reviewed => card.last_reviewed,
-  #     :interval => card.interval
-  #   )
-  # end
-
-  def self.update
-    save_to_json_file
-  end
-
-  def self.save_to_json_file
-    hash_as_json = hash_to_json
-    File.open(JSON_FILE,"w") do |f|
-      f.write(hash_as_json)
+  def self.card_objects_to_hash(cards)
+    h = {}
+    cards.each do |card|
+      h[card.name]=card.to_hash
     end
-  end
-
-  def self.hash_to_json
-    h = @@as_hash['deck']
-    json_hash = {'deck'=>{}}
-    h.each_key do |key|
-      card_as_hash = h[key].to_hash
-      json_hash['deck'][key] = card_as_hash
-    end
-    json_hash.to_json
+    h
   end
 
   def self.cards_as_array
-    h = @@as_hash['deck']
     cards_as_array = []
-    h.each_key do |key|
-      cards_as_array<<h[key]
+    @@as_hash.each_key do |key|
+      cards_as_array<<@@as_hash[key]
     end
     cards_as_array
   end
 
   def self.update_last_reviewed(card_name)
-    @@as_hash['deck'][card_name]['last_reviewed'] = Time.now
+    c = Card.find_by_name(card_name)
+    c.update_last_reviewed
   end
 
   def self.mark_card_correct(card_name)
-    @@as_hash['deck'][card_name]['interval']*=2
+    c = Card.find_by_name(card_name)
+    c.mark_correct
   end
 
   def self.mark_card_incorrect(card_name)
-    @@as_hash['deck'][card_name]['interval']*=0.5
-  end
-
-  def self.load_json_file_and_save_as_hash
-    json_file = File.read(JSON_FILE)
-    @@as_hash = JSON.parse(json_file)
+    c = Card.find_by_name(card_name)
+    c.mark_incorrect
   end
 
   def self.initialize_database
@@ -81,6 +53,11 @@ class Database
 
   def self.get_db_as_hash
     cards = Card.all
+    h ={}
+    cards.each do |card|
+      h[card.name]=card.to_hash
+    end
+    h
   end
 
   def self.bootstrap_sql_db
@@ -103,7 +80,7 @@ class Database
           table.column :name, :string
           table.column :front, :string
           table.column :back, :string
-          table.column :last_reviewed, :time
+          table.column :last_reviewed, :datetime
           table.column :interval, :integer
         end
       end

@@ -20,13 +20,15 @@ class Upload
 
   def self.upload_deck(filename)
     CSV.foreach(filename, :headers => true) do |csv_obj|
-      Card.create!(
+      c = Card.create!(
         :name => csv_obj['name'],
         :front => csv_obj['front'],
         :back => csv_obj['back'],
-        :last_reviewed => Time.now,
+        :last_reviewed => DateTime.now.iso8601,
         :interval => 1200
       )
+
+      puts c.last_reviewed
     end
   end
 end
