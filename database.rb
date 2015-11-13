@@ -10,15 +10,17 @@ class Database
     @@as_hash
   end
 
-  def self.save_card(card)
-    Card.create(
-      :name => card.name,
-      :front => card.front,
-      :back => card.back,
-      :last_reviewed => card.last_reviewed,
-      :interval => card.interval
-    )
-  end
+  # def self.save_card(card)
+  #   name = card.name
+  #
+  #   Card.create(
+  #     :name => card.name,
+  #     :front => card.front,
+  #     :back => card.back,
+  #     :last_reviewed => card.last_reviewed,
+  #     :interval => card.interval
+  #   )
+  # end
 
   def self.update
     save_to_json_file
@@ -90,7 +92,7 @@ class Database
 
     ActiveRecord::Base.establish_connection(
       :adapter  => 'sqlite3',
-      :database => 'db/flashcards_app.db'
+      :database => 'db/flashcards_app.sqlite3'
     )
   end
 
@@ -98,7 +100,7 @@ class Database
     ActiveRecord::Schema.define do
       unless ActiveRecord::Base.connection.tables.include? 'cards'
         create_table :cards do |table|
-          table.column :name,     :string
+          table.column :name, :string
           table.column :front, :string
           table.column :back, :string
           table.column :last_reviewed, :time

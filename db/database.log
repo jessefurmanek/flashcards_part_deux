@@ -1,1 +1,37 @@
-D, [2015-11-12T14:12:28.182161 #24697] DEBUG -- :   [1m[36mCard Load (0.3ms)[0m  [1mSELECT "cards".* FROM "cards"[0m
+D, [2015-11-12T22:23:43.735366 #11618] DEBUG -- :   [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+D, [2015-11-12T22:23:43.747958 #11618] DEBUG -- :   [1m[35mSQL (0.9ms)[0m  INSERT INTO "cards" ("name", "front", "back", "last_reviewed", "interval") VALUES (?, ?, ?, ?, ?)  [["name", "1"], ["front", "timestamp format"], ["back", "YYYYMMDDHHMMSS"], ["last_reviewed", "2015-11-13 04:23:43.725031"], ["interval", 1200]]
+D, [2015-11-12T22:23:43.748838 #11618] DEBUG -- :   [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+D, [2015-11-12T22:23:43.749255 #11618] DEBUG -- :   [1m[35m (0.0ms)[0m  begin transaction
+D, [2015-11-12T22:23:43.749838 #11618] DEBUG -- :   [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "cards" ("name", "front", "back", "last_reviewed", "interval") VALUES (?, ?, ?, ?, ?)[0m  [["name", "2"], ["front", "What does t refer to in the migrate Class block?"], ["back", "Within the block t refers to a TableDefinition object but we can just think of it as the table being created in the database"], ["last_reviewed", "2015-11-13 04:23:43.748927"], ["interval", 1200]]
+D, [2015-11-12T22:23:43.750517 #11618] DEBUG -- :   [1m[35m (0.5ms)[0m  commit transaction
+D, [2015-11-12T22:23:43.750756 #11618] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+D, [2015-11-12T22:23:43.751301 #11618] DEBUG -- :   [1m[35mSQL (0.1ms)[0m  INSERT INTO "cards" ("name", "front", "back", "last_reviewed", "interval") VALUES (?, ?, ?, ?, ?)  [["name", "3"], ["front", "What is the name of the arguments passed in a migrate Class block? And what do they do?"], ["back", "Constraints. They keep our code clean"], ["last_reviewed", "2015-11-13 04:23:43.750564"], ["interval", 1200]]
+D, [2015-11-12T22:23:43.752027 #11618] DEBUG -- :   [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+D, [2015-11-12T22:23:43.752278 #11618] DEBUG -- :   [1m[35m (0.0ms)[0m  begin transaction
+D, [2015-11-12T22:23:43.752781 #11618] DEBUG -- :   [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "cards" ("name", "front", "back", "last_reviewed", "interval") VALUES (?, ?, ?, ?, ?)[0m  [["name", "4"], ["front", "How does a class get sweet methods to do migration (schema/table) stuff?"], ["back", "Inherits from ActiveRecord::Migraion"], ["last_reviewed", "2015-11-13 04:23:43.752082"], ["interval", 1200]]
+D, [2015-11-12T22:23:43.753512 #11618] DEBUG -- :   [1m[35m (0.6ms)[0m  commit transaction
+D, [2015-11-12T22:23:43.753771 #11618] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+D, [2015-11-12T22:23:43.754446 #11618] DEBUG -- :   [1m[35mSQL (0.1ms)[0m  INSERT INTO "cards" ("name", "front", "back", "last_reviewed", "interval") VALUES (?, ?, ?, ?, ?)  [["name", "5"], ["front", "Is an ID required to migrate?"], ["back", "No, it’s automatically created"], ["last_reviewed", "2015-11-13 04:23:43.753585"], ["interval", 1200]]
+D, [2015-11-12T22:23:43.755138 #11618] DEBUG -- :   [1m[36m (0.5ms)[0m  [1mcommit transaction[0m
+D, [2015-11-12T22:23:43.755368 #11618] DEBUG -- :   [1m[35m (0.0ms)[0m  begin transaction
+D, [2015-11-12T22:23:43.755779 #11618] DEBUG -- :   [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "cards" ("name", "front", "back", "last_reviewed", "interval") VALUES (?, ?, ?, ?, ?)[0m  [["name", "6"], ["front", "What is the expression to add a timestamp inside the migration block?"], ["back", "t.timestamps where t is the iterator"], ["last_reviewed", "2015-11-13 04:23:43.755189"], ["interval", 1200]]
+D, [2015-11-12T22:23:43.756486 #11618] DEBUG -- :   [1m[35m (0.6ms)[0m  commit transaction
+D, [2015-11-12T22:23:43.756858 #11618] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+D, [2015-11-12T22:23:43.757378 #11618] DEBUG -- :   [1m[35mSQL (0.2ms)[0m  INSERT INTO "cards" ("name", "front", "back", "last_reviewed", "interval") VALUES (?, ?, ?, ?, ?)  [["name", "7"], ["front", "What are the optional columns that add additional features?"], ["back", "created_at - Automatically gets set to the current date and time when the record is first created"], ["last_reviewed", "2015-11-13 04:23:43.756547"], ["interval", 1200]]
+D, [2015-11-12T22:23:43.758222 #11618] DEBUG -- :   [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+D, [2015-11-12T22:23:43.758604 #11618] DEBUG -- :   [1m[35m (0.0ms)[0m  begin transaction
+D, [2015-11-12T22:23:43.759188 #11618] DEBUG -- :   [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "cards" ("name", "front", "back", "last_reviewed", "interval") VALUES (?, ?, ?, ?, ?)[0m  [["name", "8"], ["front", "How can you override an existing class table name / column for the primary key / class name?"], ["back", "self.table_name = new name\n self.fixture_class\n self.primary_key = product key"], ["last_reviewed", "2015-11-13 04:23:43.758321"], ["interval", 1200]]
+D, [2015-11-12T22:23:43.759845 #11618] DEBUG -- :   [1m[35m (0.5ms)[0m  commit transaction
+D, [2015-11-12T22:23:43.760137 #11618] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+D, [2015-11-12T22:23:43.760655 #11618] DEBUG -- :   [1m[35mSQL (0.2ms)[0m  INSERT INTO "cards" ("name", "front", "back", "last_reviewed", "interval") VALUES (?, ?, ?, ?, ?)  [["name", "9"], ["front", "Whats the difference between new and create"], ["back", "New creates a new object"], ["last_reviewed", "2015-11-13 04:23:43.759913"], ["interval", 1200]]
+D, [2015-11-12T22:23:43.761369 #11618] DEBUG -- :   [1m[36m (0.5ms)[0m  [1mcommit transaction[0m
+D, [2015-11-12T22:23:43.761669 #11618] DEBUG -- :   [1m[35m (0.1ms)[0m  begin transaction
+D, [2015-11-12T22:23:43.762170 #11618] DEBUG -- :   [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "cards" ("name", "front", "back", "last_reviewed", "interval") VALUES (?, ?, ?, ?, ?)[0m  [["name", "10"], ["front", "Which method to access the entire collection of that object?"], ["back", "all"], ["last_reviewed", "2015-11-13 04:23:43.761427"], ["interval", 1200]]
+D, [2015-11-12T22:23:43.762881 #11618] DEBUG -- :   [1m[35m (0.5ms)[0m  commit transaction
+D, [2015-11-12T22:23:43.763191 #11618] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+D, [2015-11-12T22:23:43.763861 #11618] DEBUG -- :   [1m[35mSQL (0.2ms)[0m  INSERT INTO "cards" ("name", "front", "back", "last_reviewed", "interval") VALUES (?, ?, ?, ?, ?)  [["name", "11"], ["front", "Which method to return the first of the collection?"], ["back", "first"], ["last_reviewed", "2015-11-13 04:23:43.762947"], ["interval", 1200]]
+D, [2015-11-12T22:23:43.764699 #11618] DEBUG -- :   [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+D, [2015-11-12T22:23:43.765058 #11618] DEBUG -- :   [1m[35m (0.0ms)[0m  begin transaction
+D, [2015-11-12T22:23:43.765659 #11618] DEBUG -- :   [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "cards" ("name", "front", "back", "last_reviewed", "interval") VALUES (?, ?, ?, ?, ?)[0m  [["name", "12"], ["front", "Which method to search the collection for the first occurrence of an attribute? Syntax?"], ["back", "find_by"], ["last_reviewed", "2015-11-13 04:23:43.764779"], ["interval", 1200]]
+D, [2015-11-12T22:23:43.766347 #11618] DEBUG -- :   [1m[35m (0.5ms)[0m  commit transaction
+D, [2015-11-12T22:23:43.766798 #11618] DEBUG -- :   [1m[36mCard Load (0.1ms)[0m  [1mSELECT "cards".* FROM "cards"[0m

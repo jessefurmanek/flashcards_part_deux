@@ -2,7 +2,6 @@ require 'csv'
 require_relative 'card.rb'
 
 class Upload
-
   def self.run
     filename = get_filename
     if File.exist?(filename)
@@ -21,14 +20,13 @@ class Upload
 
   def self.upload_deck(filename)
     CSV.foreach(filename, :headers => true) do |csv_obj|
-      card = Card.new(csv_obj['name'])
-      card.front = csv_obj['front']
-      card.back = csv_obj['back']
-      card.save
+      Card.create!(
+        :name => csv_obj['name'],
+        :front => csv_obj['front'],
+        :back => csv_obj['back'],
+        :last_reviewed => Time.now,
+        :interval => 1200
+      )
     end
-
-    Database.save_to_json_file
-
   end
-
 end

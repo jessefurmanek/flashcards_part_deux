@@ -2,16 +2,15 @@ require_relative 'database.rb'
 require 'active_record'
 
 class Card < ActiveRecord::Base
-  attr_accessor :name, :front, :back, :mark_correct, :mark_incorrect,
-  :last_reviewed, :interval, :save, :as_json
+  attr_accessor :mark_correct, :mark_incorrect, :as_json
 
-  def initialize(name)
-    @name = name
-    @front = ""
-    @back = ""
-    @last_reviewed = Time.now
-    @interval = 1200
-  end
+  # def initialize(name)
+  #   @name = name
+  #   @front = ""
+  #   @back = ""
+  #   @last_reviewed = Time.now
+  #   @interval = 1200
+  # end
 
   def mark_correct
     @interval*=2
@@ -21,9 +20,9 @@ class Card < ActiveRecord::Base
     @interval*=0.5
   end
 
-  def save
-    Database.save_card(self)
-  end
+  # def save
+  #   Database.save_card(self)
+  # end
 
   def to_hash
     h ={}
