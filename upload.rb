@@ -24,11 +24,9 @@ class Upload
         :name => csv_obj['name'],
         :front => csv_obj['front'],
         :back => csv_obj['back'],
-        :last_reviewed => DateTime.now.iso8601,
+        :last_reviewed => Time.now,
         :interval => 1200
       )
-
-      puts c.last_reviewed
     end
   end
 end

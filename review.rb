@@ -67,6 +67,6 @@ class Review
   end
 
   def self.time_to_review?(card_hash)
-    card_hash['last_reviewed']+card_hash['interval'] <= Time.now
+    card_hash['last_reviewed']+card_hash['interval'] <= DateTime.now.iso8601
   end
 end

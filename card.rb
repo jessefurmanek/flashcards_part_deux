@@ -18,12 +18,11 @@ class Card < ActiveRecord::Base
 
   def update_last_reviewed
     c = Card.find_by_id(self.id)
-    c.last_reviewed = Time.now
+    c.last_reviewed = DateTime.now.iso8601
     c.save
   end
 
   def to_hash
-    p self.last_reviewed
     h ={}
     h['name'] = self.name
     h['front'] = self.front
