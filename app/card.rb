@@ -1,5 +1,4 @@
-require_relative 'database.rb'
-
+require 'active_record'
 class Card < ActiveRecord::Base
   attr_accessor :mark_correct, :mark_incorrect, :as_json
 

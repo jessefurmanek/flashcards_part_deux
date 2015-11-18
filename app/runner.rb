@@ -1,28 +1,25 @@
-require_relative "card.rb"
-require_relative "upload.rb"
-require_relative "review.rb"
+require_relative 'card.rb'
+require_relative 'upload.rb'
+require_relative 'review.rb'
+require_relative 'flashcards.rb'
 
 class Runner
-  def self.bootstrap
-    Database.initialize_database
-  end
-
   def self.get_actions
     actions = ['Review Cards', 'Upload Cards']
   end
 
   def self.show_actions
-    system "clear" or system "cls"
+    system 'clear' or system 'cls'
     actions = get_actions
     actions.each_with_index do |action, i|
-      puts (i+1).to_s+") "+action
+      puts (i+1).to_s+') '+action
     end
   end
 
   def self.get_and_valididate_input
     input = get_input
     if !valid_input?(input)
-      puts "Invalid selection! Try again."
+      puts 'Invalid selection! Try again.'
       get_and_valididate_input
     else
       input
@@ -31,7 +28,7 @@ class Runner
 
   def self.get_input
     puts
-    print "? "
+    print '? '
     user_input = gets.chomp
     user_input.to_i
   end

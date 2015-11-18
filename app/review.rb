@@ -1,4 +1,4 @@
-require_relative 'database.rb'
+require_relative 'card'
 
 
 class Review
@@ -8,22 +8,21 @@ class Review
   end
 
   def self.load_review_deck
-    cards_array = Database.cards_as_array
-    review_deck = create_review_deck(cards_array)
+    review_deck = create_review_deck(Card.all)
   end
 
   def self.review_cards(review_deck)
     review_deck.each do |card|
       system "clear" or system "cls"
-      puts card['front']
+      puts card.front
       pause_and_press_enter_to_continue
-      puts card['back']
+      puts card.back
       puts
       while true
         print "Did you get it right? (Y/N)"
         answer = gets.chomp
         if valid_y_n_input(answer)
-          update_card_in_database(answer, card['name'])
+          update_card_in_database(answer, card)
           break
         else
           puts "Invalid input -- try again!"
@@ -47,26 +46,24 @@ class Review
     puts
   end
 
-  def self.update_card_in_database(answer, card_name)
+  def self.update_card_in_database(answer, card)
     if ["Y", "YES"].include?(answer.upcase)
-      Database.mark_card_correct(card_name)
-      Database.update_last_reviewed(card_name)
+      card.mark_correct
     else
-      Database.mark_card_incorrect(card_name)
+      card.mark_incorrect
     end
-
-      Database.update_last_reviewed(card_name)
+      card.update_last_reviewed
   end
 
-  def self.create_review_deck(cards_array)
+  def self.create_review_deck(cards)
     review_deck = []
-    cards_array.each do |card_hash|
-      review_deck<<card_hash if time_to_review?(card_hash)
+    cards.each do |card|
+      review_deck<<card if time_to_review?(card)
     end
     review_deck
   end
 
-  def self.time_to_review?(card_hash)
-    card_hash['last_reviewed']+card_hash['interval'] <= DateTime.now.iso8601
+  def self.time_to_review?(card)
+    card.last_reviewed+card.interval <= DateTime.now.iso8601
   end
 end
