@@ -1,1 +1,63 @@
-D, [2015-11-16T10:24:19.836093 #37354] DEBUG -- :   [1m[36mCard Load (0.1ms)[0m  [1mSELECT "cards".* FROM "cards"[0m
+D, [2015-11-16T11:46:22.435016 #41062] DEBUG -- :   [1m[36mCard Load (0.1ms)[0m  [1mSELECT "cards".* FROM "cards"[0m
+D, [2015-11-16T11:46:26.079252 #41062] DEBUG -- :   [1m[35mCard Load (0.2ms)[0m  SELECT  "cards".* FROM "cards" WHERE "cards"."name" = ? LIMIT 1  [["name", "1"]]
+D, [2015-11-16T11:46:26.080091 #41062] DEBUG -- :   [1m[36mCard Load (0.1ms)[0m  [1mSELECT  "cards".* FROM "cards" WHERE "cards"."id" = ? LIMIT 1[0m  [["id", 1]]
+D, [2015-11-16T11:46:26.080507 #41062] DEBUG -- :   [1m[35m (0.1ms)[0m  begin transaction
+D, [2015-11-16T11:46:26.083102 #41062] DEBUG -- :   [1m[36mSQL (0.3ms)[0m  [1mUPDATE "cards" SET "interval" = ? WHERE "cards"."id" = ?[0m  [["interval", 160], ["id", 1]]
+D, [2015-11-16T11:46:26.084293 #41062] DEBUG -- :   [1m[35m (0.9ms)[0m  commit transaction
+D, [2015-11-16T11:46:26.084686 #41062] DEBUG -- :   [1m[36mCard Load (0.1ms)[0m  [1mSELECT  "cards".* FROM "cards" WHERE "cards"."name" = ? LIMIT 1[0m  [["name", "1"]]
+D, [2015-11-16T11:46:26.085051 #41062] DEBUG -- :   [1m[35mCard Load (0.1ms)[0m  SELECT  "cards".* FROM "cards" WHERE "cards"."id" = ? LIMIT 1  [["id", 1]]
+D, [2015-11-16T11:46:26.085661 #41062] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+D, [2015-11-16T11:46:26.086724 #41062] DEBUG -- :   [1m[35mSQL (0.3ms)[0m  UPDATE "cards" SET "last_reviewed" = ? WHERE "cards"."id" = ?  [["last_reviewed", "2015-11-16 17:46:26.000000"], ["id", 1]]
+D, [2015-11-16T11:46:26.087827 #41062] DEBUG -- :   [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+D, [2015-11-16T11:46:26.088124 #41062] DEBUG -- :   [1m[35mCard Load (0.1ms)[0m  SELECT  "cards".* FROM "cards" WHERE "cards"."name" = ? LIMIT 1  [["name", "1"]]
+D, [2015-11-16T11:46:26.088383 #41062] DEBUG -- :   [1m[36mCard Load (0.1ms)[0m  [1mSELECT  "cards".* FROM "cards" WHERE "cards"."id" = ? LIMIT 1[0m  [["id", 1]]
+D, [2015-11-16T11:46:26.088836 #41062] DEBUG -- :   [1m[35m (0.0ms)[0m  begin transaction
+D, [2015-11-16T11:46:26.089227 #41062] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mcommit transaction[0m
+D, [2015-11-16T11:46:29.734969 #41062] DEBUG -- :   [1m[35mCard Load (0.2ms)[0m  SELECT  "cards".* FROM "cards" WHERE "cards"."name" = ? LIMIT 1  [["name", "2"]]
+D, [2015-11-16T11:46:29.735675 #41062] DEBUG -- :   [1m[36mCard Load (0.1ms)[0m  [1mSELECT  "cards".* FROM "cards" WHERE "cards"."id" = ? LIMIT 1[0m  [["id", 2]]
+D, [2015-11-16T11:46:29.736145 #41062] DEBUG -- :   [1m[35m (0.1ms)[0m  begin transaction
+D, [2015-11-16T11:46:29.737689 #41062] DEBUG -- :   [1m[36mSQL (0.3ms)[0m  [1mUPDATE "cards" SET "interval" = ? WHERE "cards"."id" = ?[0m  [["interval", 600], ["id", 2]]
+D, [2015-11-16T11:46:29.739800 #41062] DEBUG -- :   [1m[35m (1.6ms)[0m  commit transaction
+D, [2015-11-16T11:46:29.740269 #41062] DEBUG -- :   [1m[36mCard Load (0.1ms)[0m  [1mSELECT  "cards".* FROM "cards" WHERE "cards"."name" = ? LIMIT 1[0m  [["name", "2"]]
+D, [2015-11-16T11:46:29.740635 #41062] DEBUG -- :   [1m[35mCard Load (0.1ms)[0m  SELECT  "cards".* FROM "cards" WHERE "cards"."id" = ? LIMIT 1  [["id", 2]]
+D, [2015-11-16T11:46:29.741335 #41062] DEBUG -- :   [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+D, [2015-11-16T11:46:29.742400 #41062] DEBUG -- :   [1m[35mSQL (0.3ms)[0m  UPDATE "cards" SET "last_reviewed" = ? WHERE "cards"."id" = ?  [["last_reviewed", "2015-11-16 17:46:29.000000"], ["id", 2]]
+D, [2015-11-16T11:46:29.743399 #41062] DEBUG -- :   [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+D, [2015-11-16T11:46:31.770968 #41062] DEBUG -- :   [1m[35mCard Load (0.3ms)[0m  SELECT  "cards".* FROM "cards" WHERE "cards"."name" = ? LIMIT 1  [["name", "3"]]
+D, [2015-11-16T11:46:31.771632 #41062] DEBUG -- :   [1m[36mCard Load (0.1ms)[0m  [1mSELECT  "cards".* FROM "cards" WHERE "cards"."id" = ? LIMIT 1[0m  [["id", 3]]
+D, [2015-11-16T11:46:31.772078 #41062] DEBUG -- :   [1m[35m (0.1ms)[0m  begin transaction
+D, [2015-11-16T11:46:31.773412 #41062] DEBUG -- :   [1m[36mSQL (0.3ms)[0m  [1mUPDATE "cards" SET "interval" = ? WHERE "cards"."id" = ?[0m  [["interval", 2400], ["id", 3]]
+D, [2015-11-16T11:46:31.775284 #41062] DEBUG -- :   [1m[35m (1.5ms)[0m  commit transaction
+D, [2015-11-16T11:46:31.775641 #41062] DEBUG -- :   [1m[36mCard Load (0.1ms)[0m  [1mSELECT  "cards".* FROM "cards" WHERE "cards"."name" = ? LIMIT 1[0m  [["name", "3"]]
+D, [2015-11-16T11:46:31.776022 #41062] DEBUG -- :   [1m[35mCard Load (0.1ms)[0m  SELECT  "cards".* FROM "cards" WHERE "cards"."id" = ? LIMIT 1  [["id", 3]]
+D, [2015-11-16T11:46:31.776524 #41062] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+D, [2015-11-16T11:46:31.777351 #41062] DEBUG -- :   [1m[35mSQL (0.2ms)[0m  UPDATE "cards" SET "last_reviewed" = ? WHERE "cards"."id" = ?  [["last_reviewed", "2015-11-16 17:46:31.000000"], ["id", 3]]
+D, [2015-11-16T11:46:31.778386 #41062] DEBUG -- :   [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+D, [2015-11-16T11:46:31.778624 #41062] DEBUG -- :   [1m[35mCard Load (0.1ms)[0m  SELECT  "cards".* FROM "cards" WHERE "cards"."name" = ? LIMIT 1  [["name", "3"]]
+D, [2015-11-16T11:46:31.778928 #41062] DEBUG -- :   [1m[36mCard Load (0.1ms)[0m  [1mSELECT  "cards".* FROM "cards" WHERE "cards"."id" = ? LIMIT 1[0m  [["id", 3]]
+D, [2015-11-16T11:46:31.779385 #41062] DEBUG -- :   [1m[35m (0.0ms)[0m  begin transaction
+D, [2015-11-16T11:46:31.779826 #41062] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mcommit transaction[0m
+D, [2015-11-16T11:46:33.098460 #41062] DEBUG -- :   [1m[35mCard Load (0.2ms)[0m  SELECT  "cards".* FROM "cards" WHERE "cards"."name" = ? LIMIT 1  [["name", "4"]]
+D, [2015-11-16T11:46:33.099147 #41062] DEBUG -- :   [1m[36mCard Load (0.1ms)[0m  [1mSELECT  "cards".* FROM "cards" WHERE "cards"."id" = ? LIMIT 1[0m  [["id", 4]]
+D, [2015-11-16T11:46:33.099600 #41062] DEBUG -- :   [1m[35m (0.1ms)[0m  begin transaction
+D, [2015-11-16T11:46:33.101109 #41062] DEBUG -- :   [1m[36mSQL (0.3ms)[0m  [1mUPDATE "cards" SET "interval" = ? WHERE "cards"."id" = ?[0m  [["interval", 600], ["id", 4]]
+D, [2015-11-16T11:46:33.103241 #41062] DEBUG -- :   [1m[35m (1.7ms)[0m  commit transaction
+D, [2015-11-16T11:46:33.103777 #41062] DEBUG -- :   [1m[36mCard Load (0.2ms)[0m  [1mSELECT  "cards".* FROM "cards" WHERE "cards"."name" = ? LIMIT 1[0m  [["name", "4"]]
+D, [2015-11-16T11:46:33.104134 #41062] DEBUG -- :   [1m[35mCard Load (0.1ms)[0m  SELECT  "cards".* FROM "cards" WHERE "cards"."id" = ? LIMIT 1  [["id", 4]]
+D, [2015-11-16T11:46:33.104718 #41062] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+D, [2015-11-16T11:46:33.105883 #41062] DEBUG -- :   [1m[35mSQL (0.3ms)[0m  UPDATE "cards" SET "last_reviewed" = ? WHERE "cards"."id" = ?  [["last_reviewed", "2015-11-16 17:46:33.000000"], ["id", 4]]
+D, [2015-11-16T11:46:33.106737 #41062] DEBUG -- :   [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+D, [2015-11-16T11:46:34.954731 #41062] DEBUG -- :   [1m[35mCard Load (0.3ms)[0m  SELECT  "cards".* FROM "cards" WHERE "cards"."name" = ? LIMIT 1  [["name", "5"]]
+D, [2015-11-16T11:46:34.955434 #41062] DEBUG -- :   [1m[36mCard Load (0.1ms)[0m  [1mSELECT  "cards".* FROM "cards" WHERE "cards"."id" = ? LIMIT 1[0m  [["id", 5]]
+D, [2015-11-16T11:46:34.955917 #41062] DEBUG -- :   [1m[35m (0.1ms)[0m  begin transaction
+D, [2015-11-16T11:46:34.957344 #41062] DEBUG -- :   [1m[36mSQL (0.3ms)[0m  [1mUPDATE "cards" SET "interval" = ? WHERE "cards"."id" = ?[0m  [["interval", 2400], ["id", 5]]
+D, [2015-11-16T11:46:34.959386 #41062] DEBUG -- :   [1m[35m (1.6ms)[0m  commit transaction
+D, [2015-11-16T11:46:34.959813 #41062] DEBUG -- :   [1m[36mCard Load (0.1ms)[0m  [1mSELECT  "cards".* FROM "cards" WHERE "cards"."name" = ? LIMIT 1[0m  [["name", "5"]]
+D, [2015-11-16T11:46:34.960179 #41062] DEBUG -- :   [1m[35mCard Load (0.1ms)[0m  SELECT  "cards".* FROM "cards" WHERE "cards"."id" = ? LIMIT 1  [["id", 5]]
+D, [2015-11-16T11:46:34.960869 #41062] DEBUG -- :   [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+D, [2015-11-16T11:46:34.961907 #41062] DEBUG -- :   [1m[35mSQL (0.3ms)[0m  UPDATE "cards" SET "last_reviewed" = ? WHERE "cards"."id" = ?  [["last_reviewed", "2015-11-16 17:46:34.000000"], ["id", 5]]
+D, [2015-11-16T11:46:34.962876 #41062] DEBUG -- :   [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+D, [2015-11-16T11:46:34.963097 #41062] DEBUG -- :   [1m[35mCard Load (0.1ms)[0m  SELECT  "cards".* FROM "cards" WHERE "cards"."name" = ? LIMIT 1  [["name", "5"]]
+D, [2015-11-16T11:46:34.963327 #41062] DEBUG -- :   [1m[36mCard Load (0.1ms)[0m  [1mSELECT  "cards".* FROM "cards" WHERE "cards"."id" = ? LIMIT 1[0m  [["id", 5]]
+D, [2015-11-16T11:46:34.963816 #41062] DEBUG -- :   [1m[35m (0.0ms)[0m  begin transaction
+D, [2015-11-16T11:46:34.964152 #41062] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mcommit transaction[0m

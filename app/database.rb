@@ -65,11 +65,11 @@ class Database
   end
 
   def self.set_log_and_establish_connection_to_db
-    ActiveRecord::Base.logger = Logger.new(File.open('db/database.log', 'w'))
+    ActiveRecord::Base.logger = Logger.new(File.open('../db/database.log', 'w'))
 
     ActiveRecord::Base.establish_connection(
       :adapter  => 'sqlite3',
-      :database => 'db/flashcards_app.sqlite3'
+      :database => '../db/flashcards_app.sqlite3'
     )
   end
 
