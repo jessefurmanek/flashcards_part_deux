@@ -19,8 +19,7 @@ class Review
       puts card.back
       puts
       while true
-        print "Did you get it right? (Y/N)"
-        answer = gets.chomp
+        answer = get_y_n_input
         if valid_y_n_input(answer)
           update_card_in_database(answer, card)
           break
@@ -29,6 +28,11 @@ class Review
         end
       end
     end
+  end
+
+  def self.get_y_n_input
+    print "Did you get it right? (Y/N)"
+    answer = gets.chomp
   end
 
   def self.valid_y_n_input(answer)
